@@ -1,0 +1,2 @@
+# How most professionals do it, generating a model rather than scaffold
+rails g model Book title:string
