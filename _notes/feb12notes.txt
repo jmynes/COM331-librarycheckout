@@ -14,3 +14,38 @@ $   rake db:migrate
 $   rails g model Author last_name:string
 
 # This generated db/migrate/20180212235656_create_authors.rb
+
+# Oh no! We "forgot" first_name:string! Quick, edit the above file!
+# add the line
+#   t.string :first_name
+
+# Update the schema file again, there are now two files in db/migrate
+# Check version on scheme whenever unsure if migration yet occured
+$   rake db:migrate
+
+
+# Let's test our API
+
+$   rails c
+$   @author = Author.new
+$   @author = Author.last_name = "Martin"
+
+# Oops, accidental \n in there!
+$   @author = Author.first_name = "George R. R.
+$   "
+
+# Let's fix it.
+# The ! on chomp will actually change the existing record.
+$   @author = Author.first_name.chomp!
+
+# Save our Author, write to db
+$   @author.save
+
+# Find George!
+$   @george = Author.find(1
+
+# For now, this'll be exact match
+$   @find_george = Author.find_by_first_name("George")
+
+# It returned nothing.
+  => nil
