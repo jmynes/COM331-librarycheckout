@@ -3,16 +3,14 @@
 
 
 # Create migration file
-rails g model Book title:string
+$   rails g model Book title:string
 
 # And now update the schema file
-rake db:migrate
+$   rake db:migrate
 
 # No views or controllers exist yet, no routes to find.
 
 # Added last_name, intentionally forgot first_name:string
-rails g model Author last_name:string
+$   rails g model Author last_name:string
 
 # This generated db/migrate/20180212235656_create_authors.rb
-
-# Oh no! We "forgot" first_name:string! Quick, edit the above file!
