@@ -14,3 +14,5 @@ rake db:migrate
 rails g model Author last_name:string
 
 # This generated db/migrate/20180212235656_create_authors.rb
+
+# Oh no! We "forgot" first_name:string! Quick, edit the above file!
