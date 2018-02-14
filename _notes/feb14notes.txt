@@ -36,3 +36,8 @@ $ rails c
 > @book.authors.first.first_name
 
 # Exit the console
+
+$ rails g model User last_name:string first_name:string email:string
+$ rake db:migrate
+$ rails g model Role level:string
+$ rake db:migrate
