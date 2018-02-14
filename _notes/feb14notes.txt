@@ -1,3 +1,5 @@
+# Log for what we did today!
+
 # First step of the day
 $ rails g migration CreateAuthorsBooksJoinTable
 
@@ -32,3 +34,5 @@ $ rails c
 
 > @book.authors.first
 > @book.authors.first.first_name
+
+# Exit the console
