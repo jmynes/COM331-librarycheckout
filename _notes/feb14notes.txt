@@ -1,0 +1,34 @@
+# First step of the day
+$ rails g migration CreateAuthorsBooksJoinTable
+
+# orders in sort order (authors before books)
+
+# Now we're gonna make some changes before migration, check git history before aaeb658
+
+# At commit aaeb658 we ran:
+$ rake db:migrate
+
+# Didn't commit our next changes yet, but let's play with the console
+$ rails c
+
+> @author = Author.new
+> @author.first_name = "David Foster"
+> @author.last_name = "Wallace"
+> @author.save
+
+> @book = Book.new
+> @book.title = "Infinite Jest"
+# > @book
+# > @book.authors
+> @book.authors = [@author]
+> @book.save
+
+> @author.books
+> @book.authors
+
+> @book.authors.each do |author|
+>   puts "#{author.first_name} #{author.last_name}"
+> end
+
+> @book.authors.first
+> @book.authors.first.first_name
