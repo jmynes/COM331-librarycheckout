@@ -41,3 +41,22 @@ $ rails g model User last_name:string first_name:string email:string
 $ rake db:migrate
 $ rails g model Role level:string
 $ rake db:migrate
+$ rails g migration AddRoleToUser role:references
+$ rake db:migrate
+
+# Before we go to the console, edit the model user.rb and role.rb (in this commit, one after 96c6242)
+
+# BACK TO THE CONSOLE!
+$ rails c
+> @role = Role.new
+> @role.level = "User"
+
+> @role.save
+> @user = User.new
+> @user.last_name = "Stolley"
+> @user.first_name = "Karl"
+> @user.email = "karl.stolley@gmail.com"
+> @user.role = @role
+> @user.save
+> @user.role.level
+> @role.users
