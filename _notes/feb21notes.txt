@@ -7,4 +7,26 @@ $ rails c
 > @book = Book.new
 > @book.save
 
+# This should fail with our previous commit (9529f581b)
 $ rake test
+
+# This should now work with the commit following above ^
+# as we updated the book model and book_test:
+$ rake test
+
+# These will now fail, correctly.
+$ rails c
+
+@book = Book.create
+@newbook = Book.new
+
+@book.save
+@newbook.save
+
+# Exit and start the console again
+$ rails c
+
+@book = Book.create(title: "Gone With The Wind")
+@newbook = Book.create(title: "Infinite Jest")
+@book.save
+@newbook.save
