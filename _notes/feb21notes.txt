@@ -1,0 +1,10 @@
+# Log for what we did today!
+
+# BACK TO THE CONSOLE!
+$ rails c
+
+# We don't want this to work!
+> @book = Book.new
+> @book.save
+
+$ rake test
