@@ -30,3 +30,17 @@ $ rails c
 @newbook = Book.create(title: "Infinite Jest")
 @book.save
 @newbook.save
+
+# Made more changes run more tests
+$ rake test
+$ rails c
+
+# Should receive conflict of shared email if 2 users both have blank email in db
+@user = User.new
+@user.role = Role.first
+
+@anotherone = User.new
+@anotherone.role = Role.first
+
+@anotherone.errors            # => #<ActiveModel::Errors:0x00005622af218680 @base=#<User id: nil, last_name: nil, first_name: nil, email: nil, created_at: nil, updated_at: nil, role_id: 1>, @messages={:email=>["has already been taken"]}, @details={:email=>[{:error=>:taken, :value=>nil}]}>
+@anotherone.errors.messages   # => {:email=>["has already been taken"]}
