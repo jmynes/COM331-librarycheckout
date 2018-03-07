@@ -9,3 +9,21 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 /* stylelint-enable */
 
 /* Begin site styles below */
+
+$base_font_size: 22;
+$base_line_height: 26;    /* 120% of the font-size is a good starting place */
+$base_text_color: #B00;   /* Red that won't make your eyes bleed */
+
+/* If we just pass a $target, then $context: $base_font_size, otherwise override by passing a $context*/
+@function px_to_em($target,$context: $base_font_size) {
+  @return ($target / $context) * 1em
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+
+  /* 1.375em = 22 / 16, because 16px = 1em, 1em is the width of a capital M (and height) */
+  font-size: px_to_em($base_font_size, 16);
+  line-height: px_to_em($base_line_height);
+  color: $base_text_color
+}
